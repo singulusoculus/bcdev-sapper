@@ -1,5 +1,14 @@
 <script>
+	import { fly } from 'svelte/transition'
+	import { onMount } from 'svelte'
+
 	export let segment;
+	let mobileNavVisible = false
+
+
+	const toggleMobileNav = () => {
+		mobileNavVisible = !mobileNavVisible
+	}
 </script>
 
 <style>
@@ -160,12 +169,96 @@
 		left: -7px;
 	}
 
+	.menu-btn {
+        color: #fff;
+        position: absolute;
+        left: 2rem;
+		display: none;
+		top: .8rem;
+	}
+
+	.mobile-site-nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		position: absolute;
+		top: 65px;
+		background-color: #18181885;
+		width: 100%;
+		justify-content: center;
+		z-index: 10;
+	}
+
+	.mobile-site-nav > a {
+		margin: 1rem;
+		position: relative;
+	}
+
+	.mobile-site-nav > a:after {
+		content: '';
+		font-size: 9px;
+		letter-spacing: 2px;
+		display: block;
+		width: 100%;
+		text-align: center;
+		opacity: 0;
+		transition: all .3s ease-out;
+		color: white;
+		position: absolute;
+		bottom: 15px;
+	}
+
+	@media only screen and (max-width: 960px) {
+		nav {
+			flex-direction: row;
+			width: 100%;
+			height: 65px;
+			position: relative;
+		}
+
+		.site-nav {
+			flex-direction: row;
+			align-content: center;
+		}
+
+		.site-nav > a {
+			margin: 1.5rem;
+		}
+
+		.logo {
+			margin-left: 1rem;
+		}
+	}
+
+	@media only screen and (max-width: 550px) {
+		.menu-btn {
+			display: inline-block;
+			cursor: pointer;
+		}
+		
+		.site-nav {
+			display: none;
+			position: absolute;
+			top: 65px;
+			background-color: #18181885;
+			width: 100%;
+			justify-content: center;
+			z-index: 10;
+			/* left: -550px; */
+		}
+
+		nav {
+			justify-content: center;
+		}
+	}
+
 </style>
 
 <nav>
 	<a href="." class="logo-wrapper">
 		<img src="logo-blueg.png" alt="" class="logo">
 	</a>
+
 	<div class="site-nav">
 		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
 			<i class="material-icons md-36 md-light icon-home"></i>
@@ -188,8 +281,36 @@
 		<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
 	</div>
 
+	{#if  mobileNavVisible}
+	<div class="mobile-site-nav" transition:fly={{x: -550, duration: 300}}>
+		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
+			<i class="material-icons md-36 md-light icon-home"></i>
+		</a>
+		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about">
+			<i class="material-icons md-36 md-light icon-about"></i>
+		</a>
+		<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects">
+			<i class="material-icons md-36 md-light icon-projects"></i>
+		</a>
+		<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses">
+			<i class="material-icons md-36 md-light icon-uses"></i>
+		</a>
+		<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact">
+			<i class="material-icons md-36 md-light icon-contact"></i>
+		</a>
+
+		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+		     the blog data when we hover over the link or tap it on a touchscreen -->
+		<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
+	</div>
+	{/if}
+
 	<div class="social-icons">
 	</div>
+
+    <div class="menu-btn" on:click={toggleMobileNav}>
+        <i class="material-icons md-36 md-light">menu</i>
+    </div>
 
 
 </nav>
