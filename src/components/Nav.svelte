@@ -156,7 +156,7 @@
 		opacity: 0;
 	}
 
-		a:first-child+a+a+a+a:after{
+	a:first-child+a+a+a+a:after{
 		left: -7px;
 	}
 
