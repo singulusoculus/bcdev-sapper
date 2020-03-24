@@ -21,7 +21,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		border-right: 1px solid grey;
+		box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.30);
 	}
 
 	.logo {
@@ -208,6 +208,15 @@
 		bottom: 15px;
 	}
 
+	a[aria-current]:after {
+		color: #8B8BCE;
+	}
+
+	[aria-current] > i {
+		color: #8B8BCE;
+	}
+
+
 	@media only screen and (max-width: 960px) {
 		nav {
 			flex-direction: row;
@@ -261,7 +270,7 @@
 
 	<div class="site-nav">
 		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
-			<i class="material-icons md-36 md-light icon-home"></i>
+			<i  class="material-icons md-36 md-light icon-home"></i>
 		</a>
 		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about">
 			<i class="material-icons md-36 md-light icon-about"></i>
@@ -283,19 +292,19 @@
 
 	{#if  mobileNavVisible}
 	<div class="mobile-site-nav" transition:fly={{x: -550, duration: 300}}>
-		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
+		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home" on:click={toggleMobileNav}>
 			<i class="material-icons md-36 md-light icon-home"></i>
 		</a>
-		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about">
+		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about" on:click={toggleMobileNav}>
 			<i class="material-icons md-36 md-light icon-about"></i>
 		</a>
-		<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects">
+		<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects" on:click={toggleMobileNav}>
 			<i class="material-icons md-36 md-light icon-projects"></i>
 		</a>
-		<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses">
+		<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses" on:click={toggleMobileNav}>
 			<i class="material-icons md-36 md-light icon-uses"></i>
 		</a>
-		<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact">
+		<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact" on:click={toggleMobileNav}>
 			<i class="material-icons md-36 md-light icon-contact"></i>
 		</a>
 
