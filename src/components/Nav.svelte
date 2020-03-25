@@ -183,7 +183,7 @@
 		align-items: center;
 		position: absolute;
 		top: 65px;
-		background-color: #18181885;
+		background-color: #181818;
 		width: 100%;
 		justify-content: center;
 		z-index: 10;
@@ -206,6 +206,16 @@
 		color: white;
 		position: absolute;
 		bottom: 15px;
+	}
+
+	a[aria-current]:before {
+		content: '';
+		width: 3px;
+		height: 36px;
+		background-color: #8B8BCE;
+		position: absolute;
+		left: -13px;
+		border-radius: 3px;
 	}
 
 	a[aria-current]:after {
@@ -237,6 +247,14 @@
 		.logo {
 			margin-left: 1rem;
 		}
+
+		a[aria-current]:before {
+			width: 36px;
+			height: 3px;
+			left: 0px;
+			border-radius: 3px;
+			top: 45px;
+		}
 	}
 
 	@media only screen and (max-width: 550px) {
@@ -249,7 +267,7 @@
 			display: none;
 			position: absolute;
 			top: 65px;
-			background-color: #18181885;
+			background-color: #181818;
 			width: 100%;
 			justify-content: center;
 			z-index: 10;
@@ -258,6 +276,14 @@
 
 		nav {
 			justify-content: center;
+		}
+
+		.logo-wrapper {
+			z-index: 50;
+		}
+
+		.logo {
+			margin-top: 5px;
 		}
 	}
 
