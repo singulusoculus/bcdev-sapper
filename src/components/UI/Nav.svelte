@@ -210,13 +210,31 @@
 
 	a[aria-current]:before {
 		content: '';
-		width: 3px;
+		width: 2px;
 		height: 36px;
 		background-color: #8B8BCE;
 		position: absolute;
 		left: -13px;
 		border-radius: 3px;
 	}
+
+	a:not([aria-current]):before {
+		content: '';
+		width: 2px;
+		height: 36px;
+		background-color: white;
+		position: absolute;
+		left: -18px;
+		border-radius: 3px;
+		transition: all .3s ease-out;
+		opacity: 0;
+	}
+
+	a:not([aria-current]):hover:before {
+		opacity: 1;
+		left: -13px;
+	}
+
 
 	a[aria-current]:after {
 		color: #8B8BCE;
@@ -250,10 +268,24 @@
 
 		a[aria-current]:before {
 			width: 36px;
-			height: 3px;
+			height: 2px;
 			left: 0px;
 			border-radius: 3px;
 			top: 45px;
+		}
+
+		a:not([aria-current]):before {
+			width: 36px;
+			height: 2px;
+			left: 0px;
+			top: 49px;
+			border-radius: 3px;
+			opacity: 0;
+		}
+
+		a:not([aria-current]):hover:before {
+			top: 45px;
+			left: 0px;
 		}
 	}
 

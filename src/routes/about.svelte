@@ -1,5 +1,5 @@
 <script>
-import { fadeIn, fadeOut } from '../components/pageFade.js'
+import { fadeIn, fadeOut } from '../components/UI/pageFade.js'
 </script>
 
 <svelte:head>
