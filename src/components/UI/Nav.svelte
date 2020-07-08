@@ -12,16 +12,22 @@
 </script>
 
 <style>
+	.nav-wrapper {
+		flex: 0 0 auto;
+		width: 65px;
+	}
+
 	nav {
 		width: 65px;
-		height: 100%;
-		position: absolute;
+		height: 100vh;
+		position: fixed;
 		top: 0;
 		background-color: #181818;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		box-shadow: 4px 4px 5px 0 rgba(0,0,0,0.30);
+		z-index: 10;
 	}
 
 	.logo {
@@ -218,7 +224,7 @@
 		border-radius: 3px;
 	}
 
-	a:not([aria-current]):before {
+	a:not([aria-current]):not(.logo-wrapper):before {
 		content: '';
 		width: 2px;
 		height: 36px;
@@ -230,7 +236,7 @@
 		opacity: 0;
 	}
 
-	a:not([aria-current]):hover:before {
+	a:not([aria-current]):not(.logo-wrapper):hover:before {
 		opacity: 1;
 		left: -13px;
 	}
@@ -246,6 +252,10 @@
 
 
 	@media only screen and (max-width: 960px) {
+		.nav-wrapper {
+			width: unset;
+		}
+
 		nav {
 			flex-direction: row;
 			width: 100%;
@@ -274,7 +284,7 @@
 			top: 45px;
 		}
 
-		a:not([aria-current]):before {
+		a:not([aria-current]):not(.logo-wrapper):before {
 			width: 36px;
 			height: 2px;
 			left: 0px;
@@ -283,7 +293,7 @@
 			opacity: 0;
 		}
 
-		a:not([aria-current]):hover:before {
+		a:not([aria-current]):not(.logo-wrapper):hover:before {
 			top: 45px;
 			left: 0px;
 		}
@@ -320,64 +330,65 @@
 	}
 
 </style>
-
-<nav>
-	<a href="." class="logo-wrapper">
-		<img src="logo-blueg.png" alt="" class="logo">
-	</a>
-
-	<div class="site-nav">
-		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
-			<i  class="material-icons md-36 md-light icon-home"></i>
-		</a>
-		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about">
-			<i class="material-icons md-36 md-light icon-about"></i>
-		</a>
-		<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects">
-			<i class="material-icons md-36 md-light icon-projects"></i>
-		</a>
-		<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses">
-			<i class="material-icons md-36 md-light icon-uses"></i>
-		</a>
-		<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact">
-			<i class="material-icons md-36 md-light icon-contact"></i>
+<div class="nav-wrapper">
+	<nav>
+		<a href="." class="logo-wrapper">
+			<img src="logo-blueg.png" alt="" class="logo">
 		</a>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
-	</div>
+		<div class="site-nav">
+			<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home">
+				<i  class="material-icons md-36 md-light icon-home"></i>
+			</a>
+			<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about">
+				<i class="material-icons md-36 md-light icon-about"></i>
+			</a>
+			<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects">
+				<i class="material-icons md-36 md-light icon-projects"></i>
+			</a>
+			<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses">
+				<i class="material-icons md-36 md-light icon-uses"></i>
+			</a>
+			<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact">
+				<i class="material-icons md-36 md-light icon-contact"></i>
+			</a>
 
-	{#if  mobileNavVisible}
-	<div class="mobile-site-nav" transition:fly={{x: -550, duration: 300}}>
-		<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home" on:click={toggleMobileNav}>
-			<i class="material-icons md-36 md-light icon-home"></i>
-		</a>
-		<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about" on:click={toggleMobileNav}>
-			<i class="material-icons md-36 md-light icon-about"></i>
-		</a>
-		<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects" on:click={toggleMobileNav}>
-			<i class="material-icons md-36 md-light icon-projects"></i>
-		</a>
-		<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses" on:click={toggleMobileNav}>
-			<i class="material-icons md-36 md-light icon-uses"></i>
-		</a>
-		<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact" on:click={toggleMobileNav}>
-			<i class="material-icons md-36 md-light icon-contact"></i>
-		</a>
+			<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+				the blog data when we hover over the link or tap it on a touchscreen -->
+			<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
+		</div>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
-	</div>
-	{/if}
+		{#if  mobileNavVisible}
+		<div class="mobile-site-nav" transition:fly={{x: -550, duration: 300}}>
+			<a aria-current='{segment === undefined ? "page" : undefined}' href='.' class="a-icon-home" on:click={toggleMobileNav}>
+				<i class="material-icons md-36 md-light icon-home"></i>
+			</a>
+			<a aria-current='{segment === "about" ? "page" : undefined}' href='about' class="a-icon-about" on:click={toggleMobileNav}>
+				<i class="material-icons md-36 md-light icon-about"></i>
+			</a>
+			<a aria-current='{segment === "projects" ? "page" : undefined}' href='projects' class="a-icon-projects" on:click={toggleMobileNav}>
+				<i class="material-icons md-36 md-light icon-projects"></i>
+			</a>
+			<a aria-current='{segment === "uses" ? "page" : undefined}' href='uses' class="a-icon-uses" on:click={toggleMobileNav}>
+				<i class="material-icons md-36 md-light icon-uses"></i>
+			</a>
+			<a aria-current='{segment === "contact" ? "page" : undefined}' href='contact' class="a-icon-contact" on:click={toggleMobileNav}>
+				<i class="material-icons md-36 md-light icon-contact"></i>
+			</a>
 
-	<div class="social-icons">
-	</div>
+			<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+				the blog data when we hover over the link or tap it on a touchscreen -->
+			<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
+		</div>
+		{/if}
 
-    <div class="menu-btn" on:click={toggleMobileNav}>
-        <i class="material-icons md-36 md-light">menu</i>
-    </div>
+		<div class="social-icons">
+		</div>
+
+		<div class="menu-btn" on:click={toggleMobileNav}>
+			<i class="material-icons md-36 md-light">menu</i>
+		</div>
 
 
-</nav>
+	</nav>
+</div>

@@ -1,22 +1,42 @@
 <script>
 	import Nav from '../components/UI/Nav.svelte';
+	import { firstLoad } from '../components/store/stores.js'
 
 	export let segment;
+
+	setTimeout(() => {
+		firstLoad.set(false)
+	}, 2000);
+
+
 </script>
 
 <style>
+	.page-wrapper {
+		display: flex;
+		height: 100vh;
+		justify-content: space-between;
+	}
+
 	main {
+		flex: 1 1 auto;
 		position: relative;
-		max-width: 50em;
-		/* background-color: white; */
-		padding: 2em;
-		margin: 0 auto;
+		overflow: auto;
 		box-sizing: border-box;
+		flex-grow: 1;
+	}
+
+	@media only screen and (max-width: 960px) {
+		.page-wrapper {
+			flex-direction: column;
+		}
 	}
 </style>
 
-<Nav {segment}/>
+<div class="page-wrapper">
+	<Nav {segment}/>
 
-<main>
-	<slot></slot>
-</main>
+	<main>
+		<slot></slot>
+	</main>
+</div>

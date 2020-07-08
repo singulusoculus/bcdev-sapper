@@ -1,13 +1,68 @@
 <script>
-import { fadeIn, fadeOut } from '../components/UI/pageFade.js'
+	import Container from '../components/UI/Container.svelte'
+	import PageHeading from '../components/UI/PageHeading.svelte'
+	import PageFooter from '../components/UI/PageFooter.svelte'
+	import PageContent from '../components/UI/PageContent.svelte'
+
+	const content = {
+		heading: 'A little bit about me',
+	}
+
 </script>
+
+<style>
+	img {
+		border-radius: 3px;
+		align-self: center;
+	}
+
+	.container {
+		display: flex;
+	}
+
+	.content {
+		margin-right: 15px;
+	}
+
+	p {
+		font-size: 1.1rem;
+	}
+
+	@media only screen and (max-width: 750px) {
+
+        .content {
+            margin-right: unset;
+        }
+
+		.container {
+			flex-wrap: wrap;
+		}
+
+		p {
+			font-size: 1rem;
+		}
+	}
+</style>
 
 <svelte:head>
 	<title>Brian Casey | Web Developer | About</title>
 </svelte:head>
 
-<div in:fadeIn out:fadeOut>
-	<h1>About this site</h1>
+<Container>
+	<PageHeading heading={'About'} />
 
-	<p>This is the 'about' page. There's not much here.</p>
-</div>
+	<PageContent {content} >
+		<div class="container">
+			<div class="content">
+				<p>Hi, I'm Brian Casey - husband, father of four, follower of Jesus. It's nice to meet you.</p>
+				<p>My main bread and butter is as a SQL Developer/Admin (SQL Server) and ERP specialist (Dynamics SL) for a mid-sized engineering and construction company but I'm also a web developer and web consultant. I come from a finance and project accounting background (my degree and original professional experience).</p>
+				<p>I am a board gamer by hobby. Like any good hobby it made me want to create things for it which is what pushed me even further as a web developer. I love to play games like Carcassonne, Star Wars Rebellion, and Irish Gauge.</p>
+				<p>I love to watch good movies with my wife or get down on the floor and wrestle with my four boys. You will also find me reading, enjoying a good cup of coffee, listening to a podcast, drumming, doing weird exercises, writing, and trying to make my house a better home. I'm also short one eye thanks to a childhood cancer. I feel very blessed to be here.</p>
+			</div>
+			<img src="headshot.jpg" alt="Me">
+		</div>
+	</PageContent>
+
+	<PageFooter />
+</Container>
+
