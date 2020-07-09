@@ -14,16 +14,16 @@
 <style>
 	.page-wrapper {
 		display: flex;
-		height: 100vh;
-		justify-content: space-between;
+		/* height: 100vh;
+		justify-content: space-between; */
 	}
 
 	main {
 		flex: 1 1 auto;
 		position: relative;
-		overflow: auto;
+		/* overflow: auto; */
 		box-sizing: border-box;
-		flex-grow: 1;
+		/* flex-grow: 1; */
 	}
 
 	@media only screen and (max-width: 960px) {

@@ -9,7 +9,7 @@ const year = new Date().getFullYear()
 	.wrapper {
 		filter: drop-shadow(0px -3px 5px rgba(0,0,0,0.3));
 		width: 100%;
-		margin-top: auto;
+		margin-top: 10px;
 	}
 
 	footer {

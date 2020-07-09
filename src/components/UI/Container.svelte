@@ -14,7 +14,7 @@
 		flex-direction: column;
 		align-items: center;
 		position: relative;
-		height: 100vh;
+		/* height: 100vh; */
 	}
 </style>
 
