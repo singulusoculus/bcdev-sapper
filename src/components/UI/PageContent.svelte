@@ -10,6 +10,7 @@ export let content
         width: 90%;
 		position: relative;
         margin-top: 2rem;
+		flex-grow: 1;
     }
 
     .content-box {

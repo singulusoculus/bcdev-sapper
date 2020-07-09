@@ -75,8 +75,8 @@
 
     span {
         position: absolute;
-        top: -30px;
-        right: 10%;
+        top: -40px;
+        right: 9%;
         font-size: 3rem;
         color: white;
         cursor: pointer;
@@ -84,6 +84,8 @@
 
     i {
         background: rgba(0, 0, 0, 0.75);
+        border-radius: 50%;
+        padding: 3px;
     }
 
     @media only screen and (max-width: 768px) {
