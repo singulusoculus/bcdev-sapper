@@ -16,7 +16,13 @@
 		align-items: center;
 		position: relative;
 		/* height: 100vh; */
-		min-height: calc(100vh - 65px);
+		min-height: 100vh;
+	}
+
+	@media only screen and (max-width: 960px) {
+		.container {
+			min-height: calc(100vh - 65px);
+		}
 	}
 </style>
 
