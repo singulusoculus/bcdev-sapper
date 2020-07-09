@@ -16,7 +16,7 @@
 		align-items: center;
 		position: relative;
 		/* height: 100vh; */
-		min-height: 100vh;
+		min-height: calc(100vh - 65px);
 	}
 </style>
 
