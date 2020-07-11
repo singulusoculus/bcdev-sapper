@@ -5,7 +5,7 @@
 	import PageContent from '../components/UI/PageContent.svelte'
 
 	const content = {
-		heading: 'Stuff I like to use',
+		heading: 'Gear/Apps I like to use',
 	}
 
 </script>
