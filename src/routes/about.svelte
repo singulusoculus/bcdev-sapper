@@ -14,6 +14,7 @@
 	img {
 		border-radius: 3px;
 		align-self: center;
+		flex-shrink: 0;
 	}
 
 	.container {
