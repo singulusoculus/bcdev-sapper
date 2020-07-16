@@ -13,7 +13,7 @@
 			header: 'Rank your board games',
 			link: 'https://rankingengine.pubmeeple.com',
 			niceLink: 'rankingengine.pubmeeple.com',
-			builtWith: 'JavaScript, PHP, WordPress, MaterializeCSS, mySQL',
+			builtWith: ['JavaScript', 'PHP', 'WordPress', 'MaterializeCSS', 'mySQL'],
 			imageSrc: 'RankingEngine.png',
 			imageDesc: 'Board Game Ranking Engine'
 		},
@@ -24,7 +24,7 @@
 			header: 'Create a top nine image grid',
 			link: 'https://topnine.pubmeeple.com',
 			niceLink: 'topnine.pubmeeple.com',
-			builtWith: 'Svelte',
+			builtWith: ['Svelte.js', 'JavaScript', 'CSS'],
 			imageSrc: 'TopNine.png',
 			imageDesc: 'Top Nine Generator'
 		},
@@ -35,7 +35,7 @@
 			header: 'Home of Pub Meeple on the web',
 			link: 'https://www.pubmeeple.com',
 			niceLink: 'pubmeeple.com',
-			builtWith: 'WordPress, Extra Theme',
+			builtWith: ['WordPress'],
 			imageSrc: 'PubMeeple.png',
 			imageDesc: 'Pub Meeple'
 		},
@@ -46,7 +46,7 @@
 			header: 'You are here',
 			link: 'https://www.briancasey.dev',
 			niceLink: 'briancasey.dev',
-			builtWith: 'Sapper, Svelte',
+			builtWith: ['Sapper', 'Svelte.js', 'JavaScript', 'CSS'],
 			imageSrc: 'BrianCaseydev.png',
 			imageDesc: 'BrianCasey.dev'
 		}

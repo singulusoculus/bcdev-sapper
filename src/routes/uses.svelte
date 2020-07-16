@@ -3,6 +3,7 @@
 	import PageHeading from '../components/UI/PageHeading.svelte'
 	import PageFooter from '../components/UI/PageFooter.svelte'
 	import PageContent from '../components/UI/PageContent.svelte'
+	import SkillsGrid from '../components/UI/SkillsGrid.svelte'
 
 	const gear = {
 		heading: 'Gear/Apps I like to use',
@@ -39,7 +40,8 @@
 	</PageContent>
 
 	<PageContent content={skills}>
-		<ul>
+		<SkillsGrid />
+		<!-- <ul>
 			<li>Svelte</li>
 			<li>JS</li>
 			<li>CSS</li>
@@ -60,7 +62,7 @@
 			<li>SQLite</li>
 			<li>IBM Cognos</li>
 			<li>Python</li>
-		</ul>
+		</ul> -->
 	</PageContent>
 
 	<PageFooter />

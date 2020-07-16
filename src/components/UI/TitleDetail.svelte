@@ -1,5 +1,6 @@
 <script>
 import { fly, fade } from 'svelte/transition'
+import SkillsGrid from './SkillsGrid.svelte'
 
 export let title
 export let firstMount
@@ -93,7 +94,8 @@ if (!firstMount) {
 		</div>
         <span class="fake-border"></span>
             <div class="details-content">
-            {@html title.desc}
+            	{@html title.desc}
+				<SkillsGrid titleType={title.type} />
             </div>
             <div class="details-title-wrapper">
             <div class="details-title-content">

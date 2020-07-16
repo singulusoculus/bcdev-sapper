@@ -31,8 +31,8 @@
     .image {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         transition: all .3s;
-        width: 50%;
-        margin: 1rem auto;
+        width: 90%;
+        margin: 1rem 1rem;
         z-index: 10;
         cursor: zoom-in;
     }
