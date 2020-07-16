@@ -74,7 +74,7 @@ export let content
     @media only screen and (max-width: 960px) {
 
         .content {
-            padding: .3rem 1rem .5rem 1rem;
+            padding: 1rem;
         }
 	}
 

@@ -1,6 +1,7 @@
 <script>
     import { fly, fade } from 'svelte/transition'
-    import Lightbox from './Lightbox.svelte'
+	import Lightbox from './Lightbox.svelte'
+	import SkillsGrid from './SkillsGrid.svelte'
 
     export let project
     export let firstMount
@@ -35,10 +36,6 @@
 		border: 1px solid rgb(137, 137, 137);
 		border-top-color: transparent;
 		border-right-color: transparent;
-	}
-
-	.content-text {
-		padding-top: 1rem;
 	}
 
 	.fake-border:before {
@@ -83,17 +80,24 @@
 	.meta {
 		display: flex;
 		justify-content: space-around;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
 		margin: 1rem 0;
         font-size: 1.1rem;
 		color: rgba(127,127,190,1);
+	}
+
+	.meta-sub {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		flex: 0 0 40%;
 	}
 
     @media only screen and (max-width: 960px) {
         .meta {
             flex-direction: column;
             justify-content: center;
-            text-align: center;
+            /* text-align: center; */
         }
 
         .meta-link {
@@ -115,16 +119,20 @@
 		</div>
         <span class="fake-border"></span>
             <div class="content">
+				<div class="meta">
+					<div class="meta-sub">
+						<div class="meta-link">Link: <a href="{project.link}" target="_blank">{project.niceLink}</a></div>
+						<div class="built-with">
+							<p>Built With:</p>
+							<SkillsGrid skills={project.builtWith} />
+						</div>
+					</div>
+					<Lightbox imageSrc={project.imageSrc} imageDesc={project.imageDesc} />
+				</div>
+				<hr>
                 <div class="content-text">
                     {@html project.content}
                 </div>
-                <div class="meta">
-                    <div class="meta-link">Link: <a href="{project.link}" target="_blank">{project.niceLink}</a></div>
-                    <div class="meta-built-with">Built with: {project.builtWith}</div>
-                </div>
-                {#if project.imageSrc}
-                    <Lightbox imageSrc={project.imageSrc} imageDesc={project.imageDesc} />
-                {/if}
             </div>
         <div class="footer-wrapper">
             <div class="footer-content">
