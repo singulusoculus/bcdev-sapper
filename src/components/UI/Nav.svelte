@@ -224,7 +224,7 @@
 		border-radius: 3px;
 	}
 
-	a:not([aria-current]):not(.logo-wrapper):before {
+	a:not([aria-current]):not(.logo-wrapper):not(.resume):before {
 		content: '';
 		width: 2px;
 		height: 36px;
@@ -284,7 +284,7 @@
 			top: 45px;
 		}
 
-		a:not([aria-current]):not(.logo-wrapper):before {
+		a:not([aria-current]):not(.logo-wrapper):not(.resume):before {
 			width: 36px;
 			height: 2px;
 			left: 0px;
@@ -297,6 +297,18 @@
 			top: 45px;
 			left: 0px;
 		}
+	}
+
+	.resume {
+		display: none;
+	}
+
+	.resume-details {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		cursor: pointer;
+	 	color: white;
 	}
 
 	@media only screen and (max-width: 550px) {
@@ -326,6 +338,13 @@
 
 		.logo {
 			margin-top: 5px;
+		}
+
+		.resume {
+			display: block;
+			position: absolute;
+			top: 20px;
+			right: 20px;
 		}
 	}
 
@@ -381,6 +400,13 @@
 			<!-- <a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a> -->
 		</div>
 		{/if}
+
+		<div class="resume">
+				<a href="https://www.notion.so/Brian-J-Casey-22e9e5e1522e48a0b09d4c9efa588c40" class="resume-details" target="_blank">
+					<i class="material-icons md-12 md-light">assignment_ind</i>
+					<span>Resume</span>
+				</a>
+		</div>
 
 		<div class="social-icons">
 		</div>

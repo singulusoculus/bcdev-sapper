@@ -28,6 +28,7 @@ $: isFirstLoad ? duration = 500 : duration = 0
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
 	background-image: linear-gradient(
 		to right bottom,
 		rgba(153,153,153, 1),
@@ -49,6 +50,26 @@ $: isFirstLoad ? duration = 500 : duration = 0
 	color: white;
 	}	
 
+	.resume {
+		position: absolute;
+		top: 15px;
+		right: 55px;
+	}
+
+	.resume-details {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		cursor: pointer;
+	 color: white;
+	}
+
+	@media only screen and (max-width: 960px) {
+		.resume {
+			display: none;
+		}
+	}
+
 </style>
 
 <span class="wrapper">
@@ -60,6 +81,12 @@ $: isFirstLoad ? duration = 500 : duration = 0
 				>{char}</span>
 			{/each}
 		</div>
+		<div class="resume" in:fade="{{duration: duration}}">
+		<a href="https://www.notion.so/Brian-J-Casey-22e9e5e1522e48a0b09d4c9efa588c40" class="resume-details" target="_blank">
+			<i class="material-icons md-12 md-light">assignment_ind</i>
+			<span>Resume</span>
+		</a>
+	</div>
 	</header>
 </span>
 

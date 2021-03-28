@@ -30,7 +30,7 @@
 		<ul>
 			<li>Work Computer: HP Elitebook G6</li>
 			<li>Home Computer: 2015 13" MacBook Pro</li>
-			<li>Phone: Apple iPhone XS</li>
+			<li>Phone: Apple iPhone 12</li>
 			<li>Headphones: Apple Airpods</li>
 			<li>Notes App: Notion</li>
 			<li>Keyboard: Keychron K1</li>
