@@ -25,7 +25,7 @@
 	<PageHeading heading={'Contact'} />
 
 	<PageContent {content} >
-		<p>Do you have a project you want me to work on? Want do hire me?</p>
+		<p>Do you have a project you want me to work on? Want to hire me?</p>
 		<p>Send me an email at briancasey@outlook.com with the details.</p> 
 	</PageContent>
 
